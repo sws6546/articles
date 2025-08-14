@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+.btn {
+    @apply p-2 pl-4 pr-4 text-lg border hover:bg-slate-100 shadow-xl transition cursor-pointer;
+}
