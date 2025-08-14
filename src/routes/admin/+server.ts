@@ -64,4 +64,6 @@ export async function POST({ request, cookies }) {
     const code = Math.floor(100000 + Math.random() * 900000).toString();
     await setCodeForMailInRedis(email, code);
     await sendMail(email, `Your verification code is ${code}`, 'Verify your email');
+
+    return json({message: "Success. Now type the code you received in your email."}, {status: 200})
 }
