@@ -4,12 +4,7 @@ import { json } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import nodemailer from "nodemailer";
 import { ADMIN_EMAIL, SMTP_EMAIL, SMTP_PASSWORD } from '$env/static/private';
-import { createClient } from 'redis';
-
-const redisClient = createClient({
-    url: 'redis://localhost:6379',
-})
-await redisClient.connect();
+import { redisClient } from '$lib/server/redis/index.js';
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
